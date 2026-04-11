@@ -18,8 +18,8 @@ inputs:
     description: A comma or newline separated list of labels.
 
   # secrets
-  app-id:
-    description: GitHub App ID that will use to create, update and close the pull request.
+  client-id:
+    description: GitHub App Client ID that will use to create, update and close the pull request.
     required: true
   private-key:
     description: GitHub App private key that will use to create, update and close the pull request.
@@ -32,7 +32,7 @@ runs:
       uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
       id: app-token
       with:
-        app-id: ${{ inputs.app-id }}
+        client-id: ${{ inputs.client-id }}
         private-key: ${{ inputs.private-key }}
         permission-contents: write
         permission-pull-requests: write
