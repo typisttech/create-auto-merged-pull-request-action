@@ -12,6 +12,10 @@ on:
         required: true
         type: string
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}-${{ inputs.tag_name }}
+  cancel-in-progress: true
+
 permissions: {}
 
 jobs:
